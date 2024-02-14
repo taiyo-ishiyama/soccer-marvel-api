@@ -7,11 +7,13 @@ export default function Card({
   thumbnail,
   handleDetailsClick,
   handleAddToTeamClick,
+  errorMessage,
 }) {
   return (
     <div className='card'>
       <div className='card-header'>
         <h1 className='card-name'>{name}</h1>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </div>
       <img src={thumbnail} alt='thumbnail' />
       <div className='card-footer'>

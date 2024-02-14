@@ -1,11 +1,10 @@
 ## A simple single page application to view marvel characters and select them for a 6-aside soccer team.
 
-This program is written using Mac OS in React.js 
+This program is written using Mac OS in React.js
 
 ## Initiate the program
 
 In the project directory, you can run `npm start`
-
 
 **Notes**
 There are mainly 3 functionalities, search bar to find marvel characters, field to remove players/change positions, and screenshot to download the jpg file capturing the selected team in a local environment.

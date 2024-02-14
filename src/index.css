@@ -195,6 +195,15 @@ header {
   transition: all 0.2s ease-in;
 }
 
+.error-message {
+  position: absolute;
+  font-size: x-large;
+  top: 50%;
+  left: 50%;
+  transform: translate(120%, 80%);
+  color: red;
+}
+
 .card-footer {
   position: absolute;
   bottom: 0;

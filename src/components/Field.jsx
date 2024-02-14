@@ -2,13 +2,14 @@ import React from "react";
 import { useRef, useState } from "react";
 import { createFileName, useScreenshot } from "use-react-screenshot";
 
-export default function Field({ team, setTeam }) {
+export default function Field({ team, setTeam, errorMessage, setErrorMessage }) {
   const positions = ["ST", "MD1", "MD2", "DF1", "DF2", "GK"];
 
   const handleDeletePlayer = (index) => {
     const newTeam = [...team];
     newTeam[index] = null;
     setTeam(newTeam);
+    setErrorMessage("");
   };
 
   const dragPerson = useRef();

@@ -17,6 +17,7 @@ export default function Home() {
   const [heroes, setChars] = useState([]);
   const [error, setError] = useState();
   const [team, setTeam] = useState(Array(6).fill(null));
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleAddToTeamClick = (hero) => {
     const emptyIndex = team.findIndex((player) => player === null);
@@ -24,9 +25,9 @@ export default function Home() {
       const newTeam = [...team];
       newTeam[emptyIndex] = hero;
       setTeam(newTeam);
+      setErrorMessage("");
     } else {
-      // Handle case when all positions are filled
-      // You may show a message or handle it as per your application logic
+      setErrorMessage("Team is already full!");
     }
   };
 
@@ -51,6 +52,7 @@ export default function Home() {
         id={hero.id}
         thumbnail={`${hero.thumbnail.path}/${IMG_FANTASTIC}.${hero.thumbnail.extension}`}
         handleAddToTeamClick={() => handleAddToTeamClick(hero)}
+        errorMessage={errorMessage}
       />
     ));
   }
@@ -74,7 +76,7 @@ export default function Home() {
           <Grid>{cards ? cards : null}</Grid>
         </section>
         <section id='field'>
-          <Field team={team} setTeam={setTeam} id='field' />
+          <Field team={team} setTeam={setTeam} errorMessage={errorMessage} setErrorMessage={setErrorMessage} id='field' />
         </section>
       </Container>
     </>
