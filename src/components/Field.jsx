@@ -1,6 +1,5 @@
 import React from "react";
 import { useRef, useState } from "react";
-import { createFileName, useScreenshot } from "use-react-screenshot";
 
 export default function Field({ team, setTeam, errorMessage, setErrorMessage }) {
   const positions = ["ST", "MD1", "MD2", "DF1", "DF2", "GK"];
@@ -24,22 +23,8 @@ export default function Field({ team, setTeam, errorMessage, setErrorMessage }) 
   }
 
   const containerRef = useRef(null);
-  const [image, takeScreenshot] = useScreenshot({
-    type: `image/jepg`,
-    quality: 1.0,
-  });
-  const download = (image = {}) => {
-    const a = document.createElement("a");
-    a.href = image;
-    a.download = createFileName("jpg", "my-team");
-    a.click();
-  };
-  const getImage = () => {
-    takeScreenshot(containerRef.current).then(download);
-  };
 
   return (
-    <div>
       <div className='soccer-field' ref={containerRef}>
         <h2>My Team</h2>
         <div className='field'>
@@ -77,9 +62,5 @@ export default function Field({ team, setTeam, errorMessage, setErrorMessage }) 
           ))}
         </div>
       </div>
-        <button style={{ marginBottom: "10px" }} onClick={getImage}>
-          Take screenshot
-        </button>
-    </div>
   );
 }
